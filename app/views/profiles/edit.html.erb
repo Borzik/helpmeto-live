@@ -1,31 +1,6 @@
-<h3 class="text-xl text-center mt-12">Almost ready... We need just a few more details about you</h3>
+<h3 class="text-4xl text-center mt-12">Are you...</h3>
 
-<%= form_with(model: current_user, url: profile_path) do |f| %>
-  <div class="flex flex-col justify-between items-center">
-    <div class="my-4">
-      <%= f.label :name, "Name" %>
-      <%= f.text_field :name %>
-    </div>
-    <div class="my-4">
-      <%= f.label :bio, "Please tell us about yourself" %>
-      <p class="text-gray-600 text-sm">
-        Why do you need help? Why do you want to help? What, or who, inspires you?
-      </p>
-      <%= f.text_area :bio %>
-    </div>
-    <div>
-      <h3 class="text-center">You need help or want to help?</h3>
-      <div class="flex mt-4">
-        <div class="mr-8">
-          <%= f.radio_button :kind, :recipient %>
-          <%= f.label :recipient, 'I need help', class: 'text-lg' %>
-        </div>
-        <div>
-          <%= f.radio_button :kind, :volunteer %>
-          <%= f.label :volunteer, 'I can help', class: 'text-lg' %>
-        </div>
-      </div>
-    </div>
-    <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
-  </div>
-<% end %>
+<div class="grid grid-cols-2 gap-4 mt-4 text-center">
+  <%= link_to 'in need of help?', edit_recipient_profile_path, class: 'block p-8 bg-blue-500 text-3xl text-white font-bold' %>
+  <%= link_to 'willing to help?', edit_volunteer_profile_path, class: 'block p-8 bg-blue-500 text-3xl text-white font-bold' %>
+</div>

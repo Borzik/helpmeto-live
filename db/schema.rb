@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_125729) do
+ActiveRecord::Schema.define(version: 2020_03_17_230410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
+
+  create_table "needs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.string "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location"], name: "index_needs_on_location", using: :gist
+    t.index ["user_id"], name: "index_needs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -23,7 +34,10 @@ ActiveRecord::Schema.define(version: 2020_03_16_125729) do
     t.string "kind", default: "0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["location"], name: "index_users_on_location", using: :gist
   end
 
+  add_foreign_key "needs", "users"
 end

@@ -1,0 +1,71 @@
+<h1 class="text-4xl text-center mt-4">Ask for help</h1>
+<h4 class="text-gray-800 text-center text-2xl">
+  On this page you can fill in your request and select where you are
+</h4>
+
+<div>
+  <%= form_with(model: @need) do |f| %>
+    <%= f.label :description, "Describe your request:" %>
+    <%= f.text_area :description, autofocus: true %>
+    <%= f.hidden_field :lc_lat, id: 'need_lat' %>
+    <%= f.hidden_field :lc_lng, id: 'need_lng' %>
+
+    <p class="mt-8 text-lg">
+      Where do you live? Please do not show your exact location,
+      a dot within the radius of 0.5km or 0.3mi is enough.
+      You can zoom in and click the map, the pointer will appear.
+      Some street around the corner will work great.
+    </p>
+    <div id="map" class="w-full h-50vh"></div>
+
+    <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 block mx-auto text-white" %>
+  <% end %>
+</div>
+
+<script>
+var map, infoWindow, marker;
+
+const latInput = document.getElementById('need_lat');
+const lngInput = document.getElementById('need_lng');
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 6
+  });
+  infoWindow = new google.maps.InfoWindow;
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      map.setCenter(pos);
+    }, function() {
+      alert('Cannot find your location. Please specify it on the map.');
+    });
+  }
+
+  if (latInput.value && lngInput.value) {
+    marker = new google.maps.Marker({
+      position: {
+        lat: parseFloat(latInput.value),
+        lng: parseFloat(lngInput.value),
+      },
+      map: map,
+    });
+  }
+
+  map.addListener('click', function(e) {
+    if (marker) marker.setMap(null);
+    marker = new google.maps.Marker({
+      position: e.latLng,
+      map: map,
+    });
+    map.panTo(e.latLng);
+    latInput.value = e.latLng.lat();
+    lngInput.value = e.latLng.lng();
+  });
+}
+</script>

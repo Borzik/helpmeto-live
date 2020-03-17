@@ -21,5 +21,9 @@ input[type=text], input[type=email], textarea {
 }
 
 input[type="submit"] {
-  @apply rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white;
+  @apply rounded bg-blue-600 px-6 py-2 text-xl text-white;
+}
+
+.h-50vh {
+  height: 50vh;
 }

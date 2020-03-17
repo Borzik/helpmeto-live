@@ -1,0 +1,26 @@
+<h1 class="text-4xl text-center mt-4">View your request</h1>
+
+<h3 class="text-xl italics">
+  <%= @need.description %>
+</h3>
+
+<div id="map" class="w-full h-50vh"></div>
+<script>
+var map, marker;
+
+function initMap() {
+  var pos = {
+    lat: <%= @need.lc_lat %>,
+    lng: <%= @need.lc_lng %>,
+  };
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: pos,
+    zoom: 14
+  });
+  new google.maps.Marker({
+    position: pos,
+    map: map,
+  });
+}
+</script>

@@ -5,6 +5,18 @@ class User < ApplicationRecord
 
   enum kind: { guest: 0, recipient: 1, volunteer: 2 }
 
+  has_one :need, dependent: :destroy
+  attr_writer :lc_lat, :lc_lng
+  before_validation :set_location
+
+
+  def lc_lat
+    location&.latitude
+  end
+  def lc_lng
+    location&.longitude
+  end
+
   private
   def set_sid
     self.sid = SecureRandom.alphanumeric(8)
@@ -15,5 +27,10 @@ class User < ApplicationRecord
       errors.add(:name, 'required') unless name.present?
       errors.add(:bio, 'required') unless bio.present?
     end
+  end
+
+  def set_location
+    return if !@lc_lat || !@lc_lng
+    self.location = "POINT(#{@lc_lng} #{@lc_lat})"
   end
 end
