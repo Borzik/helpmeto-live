@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_125729) do
     t.string "name", default: ""
     t.string "bio", default: ""
     t.string "sid", null: false
+    t.string "kind", default: "0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

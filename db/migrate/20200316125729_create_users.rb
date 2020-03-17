@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name, default: ""
       t.string :bio, default: ""
       t.string :sid, null: false
+      t.string :kind, null: false, default: 0
 
       t.timestamps
     end
