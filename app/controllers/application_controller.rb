@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
   before_action :verify_account
+  add_flash_types :success, :error, :warning
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])

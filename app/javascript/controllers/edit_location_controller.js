@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "map", "latInput", "lngInput" ]
+  static targets = [ "map", "latInput", "lngInput", "addressInput"]
   createMap(pos, zoom) {
     this.map = new google.maps.Map(this.mapTarget, {
       center: pos,
@@ -11,7 +11,6 @@ export default class extends Controller {
       scaleControl: true,
     });
     this.map.addListener('click', (e) => {
-      if (this.marker) this.marker.setMap(null);
       this.createMarker(e.latLng);
       this.map.panTo(e.latLng);
       this.latInputTarget.value = e.latLng.lat();
@@ -20,9 +19,23 @@ export default class extends Controller {
   }
 
   createMarker(pos) {
+    if (this.marker) this.marker.setMap(null);
     this.marker = new google.maps.Marker({
       position: pos,
       map: this.map,
+    });
+  }
+
+  find() {
+    const address = this.addressInputTarget.value;
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, (results, status) => {
+      if (status == 'OK') {
+        this.createMarker(results[0].geometry.location);
+        this.map.panTo(results[0].geometry.location);
+      } else {
+        alert('We could not find this address. Please find your place on a map and click it to put a red marker');
+      }
     });
   }
 

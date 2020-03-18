@@ -27,3 +27,28 @@ input[type="submit"] {
 .h-50vh {
   height: 50vh;
 }
+
+.alerts {
+  @apply flex w-full flex-col items-center px-4;
+}
+.alert {
+  @apply my-2 border rounded p-4 text-center w-full;
+}
+
+.alert-success {
+  @apply bg-green-100 text-green-800 border-green-800;
+}
+
+.alert-error {
+  @apply bg-red-100 text-red-800 border-red-800;
+}
+
+.alert-warning {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-800;
+}
+
+@screen md {
+  .alert {
+    @apply w-2/3;
+  }
+}
