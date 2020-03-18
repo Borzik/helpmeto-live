@@ -51,3 +51,4 @@ gem 'jwt'
 gem 'activerecord-postgis-adapter'
 gem 'rack-contrib'
 gem 'rails-i18n'
+gem "pundit"

@@ -1,19 +1,19 @@
 class NeedsController < ApplicationController
   def index
-    @needs = Need.within_10km_from(current_user.location.to_s)
+    @needs = policy_scope(Need)
     @needs_json = @needs.to_json(only: [:id, :description], methods: [:lc_lat, :lc_lng])
   end
   def show
-    @need = params[:id] ? Need.find(params[:id]) : current_user.need
+    @need = params[:id] ? policy_scope(Need).find(params[:id]) : current_user.need
+    authorize @need
   end
   def new
-    if current_user.need
-      redirect_to edit_my_need_path
-    end
+    authorize Need
     @need = Need.new
   end
   def create
     @need = current_user.build_need(need_params)
+    authorize @need
     if @need.save
       redirect_to my_need_path, success: t('.success')
     else
@@ -22,9 +22,11 @@ class NeedsController < ApplicationController
   end
   def edit
     @need = current_user.need
+    authorize @need
   end
   def update
     @need = current_user.need
+    authorize @need
     if @need.update(need_params)
       redirect_to my_need_path, success: t('.success')
     else
@@ -32,7 +34,9 @@ class NeedsController < ApplicationController
     end
   end
   def destroy
-    current_user.need.destroy
+    @need = current_user.need
+    authorize @need
+    @need.destroy
     redirect_to root_path, success: t('.success')
   end
   private

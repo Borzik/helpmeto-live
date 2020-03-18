@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   helper_method :current_user, :logged_in?
-  before_action :verify_account
   add_flash_types :success, :error, :warning
+
+  before_action :verify_account
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
+
+  # rescue_from Pundit::NotAuthorizedError do
+  #   redirect_to root_path, error: 'You are not authorized to perform this action'
+  # end
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
