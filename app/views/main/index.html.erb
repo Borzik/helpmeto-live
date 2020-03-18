@@ -18,6 +18,13 @@
   </p>
 </section>
 
+<h3 class="text-xl text-center mt-4">
+  There are currently
+  <%= pluralize User.where(kind: :volunteer).count, 'volunteer' %>
+  and
+  <%= pluralize User.where(kind: :recipient).count, 'recipient' %>
+</h3>
+
 <div class="flex items-center flex-col my-8">
   <% if logged_in? && current_user.recipient? %>
     <% if current_user.need %>

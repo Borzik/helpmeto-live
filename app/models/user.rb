@@ -11,7 +11,6 @@ class User < ApplicationRecord
   attr_writer :lc_lat, :lc_lng
   before_validation :set_location
 
-
   def lc_lat
     location&.latitude
   end
