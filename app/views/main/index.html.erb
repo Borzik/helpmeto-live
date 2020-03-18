@@ -32,7 +32,7 @@
       <h3 class="text-lg mb-1"><%= t('.call_to_action') %></h3>
       <div class="flex w-full md:w-1/2">
         <%= email_field_tag :email, '', class: "string text-xl border rounded p-2 flex-1" %>
-        <%= submit_tag "Go", class: "rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white" %>
+        <%= submit_tag t('common.go'), class: "rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white" %>
       </div>
     <% end %>
   <% end %>
