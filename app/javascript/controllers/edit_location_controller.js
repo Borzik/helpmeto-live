@@ -15,12 +15,15 @@ export default class extends Controller {
       this.latInputTarget.value = e.lngLat.lat;
       this.lngInputTarget.value = e.lngLat.lng;
     });
-    this.map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-      })
-    );
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      marker: false,
+    })
+    geocoder.on('result', ({ result }) => {
+      this.createMarker(result.center);
+    })
+    this.map.addControl(geocoder);
   }
 
   createMarker(pos) {

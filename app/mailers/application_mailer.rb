@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@helpmeto.live'
+  default from: 'HelpMeTo.live <noreply@helpmeto.live>'
   layout 'mailer'
 end
