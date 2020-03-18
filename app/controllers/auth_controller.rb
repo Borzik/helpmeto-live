@@ -1,6 +1,6 @@
 class AuthController < ApplicationController
   def create
-    user = User.find_or_create_by_email(params[:email])
+    user = User.find_or_create_by(email: params[:email])
     UserMailer.with(user: user).sign_up.deliver_now
     redirect_to '/'
   end
