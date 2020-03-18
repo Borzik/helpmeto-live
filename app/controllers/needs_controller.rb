@@ -1,6 +1,7 @@
 class NeedsController < ApplicationController
   def index
-    @needs = Need.within_10km_from(current_user.location.to_s).to_json(only: [:id], methods: [:lc_lat, :lc_lng])
+    @needs = Need.within_10km_from(current_user.location.to_s)
+    @needs_json = @needs.to_json(only: [:id], methods: [:lc_lat, :lc_lng])
   end
   def show
     @need = params[:id] ? Need.find(params[:id]) : current_user.need

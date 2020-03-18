@@ -1,9 +1,15 @@
 <h1 class="text-4xl text-center mt-4">View requests nearby</h1>
 
+<% if @needs.length > 0 %>
+  <h4 class="text-xl">There are <%= pluralize(@needs.length, 'request') %> in your area currently.</h4>
+<% else %>
+  <h4 class="text-xl">There are no requests in your area currently.</h4>
+<% end %>
+
 <div
   class="w-full h-50vh"
   data-controller="needs-map"
-  data-needs-map-list='<%= @needs %>'
+  data-needs-map-list='<%= @needs_json %>'
   data-needs-map-lat="<%= current_user.lc_lat %>"
   data-needs-map-lng="<%= current_user.lc_lng %>"
 ></div>
