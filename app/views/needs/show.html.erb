@@ -14,5 +14,6 @@
 <% if current_user.need %>
   <div class="flex justify-center mt-8">
     <%= link_to t('.edit_your_request'), edit_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+    <%= button_to t('.delete_your_request'), my_need_path, method: :delete, class: 'ml-2 p-8 bg-red-500 block text-white text-xl' %>
   </div>
 <% end %>

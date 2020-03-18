@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
 
   def update
     if current_user.update(profile_params)
-      redirect_to root_path, success: 'Profile settings saved'
+      redirect_to root_path, success: t('.success')
     else
       render_with_turbolinks current_user.volunteer? ? 'edit_volunteer' : 'edit_recipient'
     end

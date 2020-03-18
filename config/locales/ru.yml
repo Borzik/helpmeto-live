@@ -63,13 +63,20 @@ ru:
       view_requests: Просмотр запросов поблизости
       n_requests:
         zero: В вашем районе нет запросов.
-        one: В вашем районе %{count} запрос.
-        few: В вашем районе %{count} запроса.
-        many: В вашем районе %{count} запросов.
+        one: 'В вашем районе %{count} запрос.'
+        few: 'В вашем районе %{count} запроса.'
+        many: 'В вашем районе %{count} запросов.'
     show:
       view_your_request: Ваш запрос о помощи
       edit_your_request: Редактировать запрос
+      delete_your_request: Удалить запрос
       view_request: Просмотр запроса о помощи
+    create:
+      success: Ваш запрос виден всем волонтерам поблизости!
+    update:
+      success: Ваш запрос был сохранен.
+    destroy:
+      success: Ваш запрос был удален. Вы можете создать еще один в любое время!
   profiles:
     edit_recipient:
       need_details: Почти готово... Нам нужно еще немного информации о вас
@@ -86,8 +93,17 @@ ru:
       are_you: Вы...
       recipient: нуждаетесь в помощи?
       volunteer: хотели бы помочь?
+    update:
+      success: Профиль сохранен!
   user_mailer:
     sign_up:
       welcome: Добро пожаловать на helpmeto.live!
       follow_link: 'Пожалуйста, перейдите по этой ссылке, чтобы войти в свой аккаунт:'
       activate: Активировать
+  auth:
+    create:
+      link_sent: Мы отправили вам ссылку для входа на вашу электронную почту
+    activate:
+      logged_in: Добро пожаловать!
+  javascript:
+    learn_more: Узнать больше

@@ -15,7 +15,7 @@ class NeedsController < ApplicationController
   def create
     @need = current_user.build_need(need_params)
     if @need.save
-      redirect_to my_need_path, success: 'Your request is now visible to all volunteers near you'
+      redirect_to my_need_path, success: t('.success')
     else
       render_with_turbolinks 'new'
     end
@@ -26,14 +26,14 @@ class NeedsController < ApplicationController
   def update
     @need = current_user.need
     if @need.update(need_params)
-      redirect_to my_need_path, success: 'Your request has been updated'
+      redirect_to my_need_path, success: t('.success')
     else
       render_with_turbolinks 'edit'
     end
   end
   def destroy
     current_user.need.destroy
-    redirect_to '/'
+    redirect_to root_path, success: t('.success')
   end
   private
   def need_params

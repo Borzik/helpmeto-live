@@ -4,7 +4,7 @@
   <div class="flex flex-col justify-between items-center">
     <div class="my-4">
       <%= f.label :name, t('.name') %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'string' %>
       <% if current_user.errors[:name] %>
         <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
       <% end %>

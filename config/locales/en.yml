@@ -96,6 +96,12 @@ en:
       view_your_request: View your help request
       edit_your_request: Edit your request
       view_request: View help request
+    create:
+      success: Your request is now visible to all volunteers near you!
+    update:
+      success: Your request has been updated!
+    destroy:
+      success: Your request has been removed. Feel free to create a new one!
   profiles:
     edit_recipient:
       need_details: Almost ready... We need just a few more details about you
@@ -112,8 +118,17 @@ en:
       are_you: Are you...
       recipient: in need of help?
       volunteer: willing to help?
+    update:
+      success: Profile settings saved!
   user_mailer:
     sign_up:
       welcome: Welcome to helpmeto.live!
       follow_link: 'Please follow this link to log in to your account:'
       activate: Activate
+  auth:
+    create:
+      link_sent: We have sent a link to log in to your email
+    activate:
+      logged_in: You are now logged in!
+  javascript:
+    learn_more: Learn more

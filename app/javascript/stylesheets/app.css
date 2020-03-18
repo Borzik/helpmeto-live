@@ -16,11 +16,11 @@ blockquote {
   @apply pl-4 py-4 border-l-2 border-gray-400;
 }
 
-input, textarea {
+input.string, textarea {
   @apply text-xl border rounded p-2 w-full;
 }
 
-input[type="submit"] {
+input.submit {
   @apply rounded bg-blue-600 px-6 py-2 text-xl text-white w-auto;
 }
 
