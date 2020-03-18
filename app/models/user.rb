@@ -8,6 +8,7 @@ class User < ApplicationRecord
   enum kind: { guest: 0, recipient: 1, volunteer: 2 }
 
   has_one :need, dependent: :destroy
+  has_many :offers
   attr_writer :lc_lat, :lc_lng
   before_validation :set_location
 

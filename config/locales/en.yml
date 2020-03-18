@@ -33,6 +33,7 @@ en:
   common:
     and: and
     save: Save
+    send: Send
   main:
     index:
       welcome: Welcome to helpmeto.live!
@@ -96,6 +97,10 @@ en:
       view_your_request: View your help request
       edit_your_request: Edit your request
       view_request: View help request
+      already_sent: 'You have already sent offer:'
+      send_now: 'You can send an offer to help:'
+      contact_info: Your contact information (phone number is preferred)
+      message: Your message
     create:
       success: Your request is now visible to all volunteers near you!
     update:
@@ -125,6 +130,12 @@ en:
       welcome: Welcome to helpmeto.live!
       follow_link: 'Please follow this link to log in to your account:'
       activate: Activate
+  offers_mailer:
+    received_offer:
+      subject: You have received an offer to help
+      received_help_offer: Someone sent you an offer
+      contact_info: You can contact them using this information
+      message: Message
   auth:
     create:
       link_sent: We have sent a link to log in to your email

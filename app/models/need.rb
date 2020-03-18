@@ -1,5 +1,6 @@
 class Need < ApplicationRecord
   belongs_to :user
+  has_many :offers
   attr_writer :lc_lat, :lc_lng
   before_validation :set_location
   validates :location, presence: { message: 'please click a map to select your location' }

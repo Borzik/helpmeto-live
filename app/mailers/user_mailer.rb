@@ -3,6 +3,6 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     token = JwtAuth.encrypt(@user.id)
     @url = activate_auth_url(token: token)
-    mail(to: @user.email, subject: "Welcome to helpmeto.live!")
+    mail(to: @user.email, subject: t('user_mailer.sign_up.welcome'))
   end
 end

@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :offers
   resource :profile, only: %i[edit update] do
     get :edit_recipient, on: :member
     get :edit_volunteer, on: :member
   end
   resource :need, as: :my_need, only: %i[show new create edit update destroy]
-  resources :needs, only: %i[index show]
+  resources :needs, only: %i[index show] do
+    resources :offers, only: %i[index create]
+  end
   post 'auth', to: 'auth#create'
   get 'auth', to: 'auth#activate', as: 'activate_auth'
   get 'qa', to: 'main#qa', as: 'qa'

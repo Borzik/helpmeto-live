@@ -2,6 +2,7 @@ ru:
   common:
     and: и
     save: Сохранить
+    send: Отправить
   main:
     index:
       welcome: Добро пожаловать на helpmeto.live!
@@ -71,6 +72,15 @@ ru:
       edit_your_request: Редактировать запрос
       delete_your_request: Удалить запрос
       view_request: Просмотр запроса о помощи
+      already_sent: 'Вы уже отправили предложение:'
+      send_now: 'Вы можете отправить предложение помочь:'
+      contact_info: Ваша контактная информация (например, номер телефона)
+      message: Ваше сообщение
+      you_got_proposal:
+        one: 'Вы получили %{count} предложение о помощи'
+        few: 'Вы получили %{count} предложения о помощи'
+        many: 'Вы получили %{count} предложений о помощи'
+      contact: Контактная информация
     create:
       success: Ваш запрос виден всем волонтерам поблизости!
     update:
@@ -100,6 +110,12 @@ ru:
       welcome: Добро пожаловать на helpmeto.live!
       follow_link: 'Пожалуйста, перейдите по этой ссылке, чтобы войти в свой аккаунт:'
       activate: Активировать
+  offers_mailer:
+    received_offer:
+      subject: Вы получили предложение о помощи!
+      received_help_offer: Вам предложили помощь
+      contact_info: Вы можете связаться с ними используя эти данные
+      message: Сообщение
   auth:
     create:
       link_sent: Мы отправили вам ссылку для входа на вашу электронную почту
