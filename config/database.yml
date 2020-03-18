@@ -83,4 +83,4 @@ production:
   database: helpmeto_production
   username: helpmeto
   password: <%= ENV['HELPMETO_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'].sub(/^postgres/, "postgis") %>
+  url: <%= (ENV['DATABASE_URL'] || '').sub(/^postgres/, "postgis") %>

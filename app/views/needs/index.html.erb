@@ -1,29 +1,9 @@
-<h1 class="text-4xl text-center mt-4">View requests</h1>
+<h1 class="text-4xl text-center mt-4">View requests nearby</h1>
 
-<div id="map" class="w-full h-50vh"></div>
-<script>
-var map, marker;
-
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lng: <%= current_user.lc_lng %>,
-      lat: <%= current_user.lc_lat %>,
-    },
-    zoom: 14
-  });
-  <% Need.within_10km_from(current_user.location.to_s).each do |need| %>
-    var marker = new google.maps.Marker({
-      position: {
-        lng: <%= need.lc_lng %>,
-        lat: <%= need.lc_lat %>,
-      },
-      map: map,
-    });
-    marker.addListener('click', function() {
-      var win = window.open('<%= "/needs/#{need.id}" %>', '_blank');
-      win.focus();
-    });
-  <% end %>
-}
-</script>
+<div
+  class="w-full h-50vh"
+  data-controller="needs-map"
+  data-needs-map-list='<%= @needs %>'
+  data-needs-map-lat="<%= current_user.lc_lat %>"
+  data-needs-map-lng="<%= current_user.lc_lng %>"
+></div>

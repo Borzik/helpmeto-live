@@ -5,11 +5,12 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name, default: ""
       t.string :bio, default: ""
       t.string :sid, null: false
-      t.string :kind, null: false, default: 0
+      t.integer :kind, null: false, default: 0
+      t.st_point :location, geographic: true
 
       t.timestamps
     end
-
+    add_index :users, :location, using: :gist
     add_index :users, :email, unique: true
   end
 end

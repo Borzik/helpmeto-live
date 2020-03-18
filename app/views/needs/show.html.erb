@@ -1,26 +1,13 @@
-<h1 class="text-4xl text-center mt-4">View your request</h1>
+<h1 class="text-4xl text-center mt-4">View <%= current_user.need&.id == @need.id ? 'your' : '' %> help request</h1>
 
-<h3 class="text-xl italics">
+<h3 class="text-xl italic text-center mt-4">
   <%= @need.description %>
 </h3>
 
-<div id="map" class="w-full h-50vh"></div>
-<script>
-var map, marker;
+<div class="w-full h-50vh mt-8" data-controller="show-map" data-lat="<%= @need.lc_lat %>" data-lng="<%= @need.lc_lng %>"></div>
 
-function initMap() {
-  var pos = {
-    lat: <%= @need.lc_lat %>,
-    lng: <%= @need.lc_lng %>,
-  };
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: pos,
-    zoom: 14
-  });
-  new google.maps.Marker({
-    position: pos,
-    map: map,
-  });
-}
-</script>
+<% if current_user.need %>
+  <div class="flex justify-center mt-8">
+    <%= link_to 'Edit your request', edit_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+  </div>
+<% end %>

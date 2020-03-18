@@ -12,8 +12,10 @@ class ApplicationController < ActionController::Base
 
   private
   def verify_account
-    if logged_in? && (@current_user.name.empty? || @current_user.bio.empty?)
-      redirect_to edit_profile_path
-    end
+    return if !logged_in?
+    return redirect_to edit_profile_path if current_user.name.empty?
+    return redirect_to edit_profile_path if current_user.bio.empty?
+    return redirect_to edit_profile_path if current_user.volunteer? && !current_user.location
+    true
   end
 end

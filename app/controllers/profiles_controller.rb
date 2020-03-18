@@ -4,10 +4,10 @@ class ProfilesController < ApplicationController
   def edit
   end
   def edit_recipient
-    current_user.update_column(:kind, :recipient)
+    current_user.update_column(:kind, 1)
   end
   def edit_volunteer
-    current_user.update_column(:kind, :volunteer)
+    current_user.update_column(:kind, 2)
   end
 
   def update
@@ -17,6 +17,6 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:user).permit(:name, :bio, :kind, :lc_lat, :lc_lng)
+    params.require(:user).permit(:name, :bio, :lc_lat, :lc_lng)
   end
 end

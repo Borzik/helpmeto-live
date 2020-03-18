@@ -2,8 +2,9 @@
   <h1 class="text-4xl">Welcome to helpmeto.live!</h1>
   <p>
     Many older people are facing danger from COVID-19 today.
-    It is officially advised for them to stay at home.
-    Join us to help them!
+    <br>
+    It is officially advised for them to stay at home, but not all have friends
+    or relatives who can take care of them. Join us to help them!
   </p>
 
   <p>
@@ -17,14 +18,27 @@
   </p>
 </section>
 
-<% unless logged_in? %>
-  <%= form_with url: '/auth', method: :post, class: "text-center my-8" do %>
-    <h3 class="text-lg mb-1">Input your email to join or log in:</h3>
-    <%= email_field_tag :email, '', class: "text-xl border rounded p-2" %>
-    <%= submit_tag "Go", class: "rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white" %>
+<div class="flex items-center flex-col my-8">
+  <% if logged_in? && current_user.recipient? %>
+    <% if current_user.need %>
+      <%= link_to 'View your request', my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+    <% else %>
+      <%= link_to 'Create request', new_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+    <% end %>
+  <% elsif logged_in? %>
+    <%= link_to 'View requests nearby', needs_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+  <% else %>
+    <%= form_with url: '/auth', method: :post, class: "text-center my-8 flex flex-col items-center w-full" do %>
+      <h3 class="text-lg mb-1">Input your email to join or log in:</h3>
+      <div class="flex w-full md:w-1/2">
+        <%= email_field_tag :email, '', class: "text-xl border rounded p-2 flex-1" %>
+        <%= submit_tag "Go", class: "rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white" %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
+<% if !logged_in? %>
 <div class="grid grid-cols-2 gap-16 mt-8">
   <div>
     <h3 class="text-2xl text-center">I can help</h3>
@@ -39,35 +53,6 @@
       Sign up to see other people in your area who are in need. Contact them
       and help to complete strangers.
     </p>
-
-    <h3 class="text-xl mt-8 mb-4">Q&A for volunteers</h3>
-    <blockquote class="font-bold">Do I get paid?</blockquote>
-    <p>
-      No. This is not a food delivery service. Our goal is to help people, not to
-      earn money on it. Of course those who can afford ordering delivery to their
-      home should order it, but there are a lot of people who cannot afford it. Some
-      people might show their appreciation somehow, but it is not and will not be
-      encouraged.
-    </p>
-
-    <blockquote class="font-bold">Do I have to spend my own money to buy food for people?</blockquote>
-    <p>
-      We are not funded by any government or company, so we can't give you money to buy food.
-      At the same we do not ask you to donate money. One-time donation isn't enough in
-      this situation. And to provide constant help, you will need your funds back.
-      You will have to buy food for your own money, keep receipts, and bring it to people.
-      For example, plan a simple package (bread, cereal, water). Find a person who
-      needs it. Buy it and bring it to them. It should not be something expensive,
-      just something to keep them going for a few more days.
-    </p>
-
-    <blockquote class="font-bold">Can a person refuse to buy the food I bring?</blockquote>
-    <p>
-      We cannot force them to buy anything. That is why we ask you not to buy
-      anything expensive or specific, unless you arrange it with the person first.
-      By posting on the website, the person declares a need for help. You can
-      offer them help, but it's up to them whether to accept or deny it.
-    </p>
   </div>
   <div>
     <h3 class="text-2xl text-center">I need help</h3>
@@ -79,42 +64,11 @@
       initiative, we cannot afford to buy food for everyone. But our volunteers
       are here to buy it and bring it to your home.
     </p>
-
-    <h3 class="text-xl mt-8 mb-4">Q&A for recipients</h3>
-    <blockquote class="font-bold">Should I pay for it?</blockquote>
-    <p>
-      This is not a food delivery service. It is completely non-profit.
-      Volunteers do not get money for their work. But the food has to be purchased.
-      And volunteers are the ones who buy food and bring it to you. All the receipts
-      will be provided, and if you can afford, please compensate volunteers' expenses
-      according to the receipt they provide.  Our goal is to help people, not to
-      earn money on it. If you can afford ordering food delivery to your home,
-      or if you have relatives who can help you, please ask them. But there are
-      a lot of people who cannot afford it any deliveries. And this is the help
-      we can provide for them — to go and buy food for them.
-    </p>
   </div>
 </div>
+<% end %>
 
-<h3 class="text-xl mt-8 mb-4">Q&A for all</h3>
-
-<blockquote class="font-bold">Won't I get infected?</blockquote>
-<p>
-  Due to the fact that the virus is highly contagious, it is possible. That is
-  why we ask you to take all the precautions when you go to the store and contact
-  anyone — wash your hands, and always keep a distance. If you feel sick — it's
-  better to stay at home and let others know about your condition.
-</p>
-
-<blockquote class="font-bold">Where do the money to support and develop the service come from?</blockquote>
-<p>
-  Currently it is only founder's own funds. This project is non-profit,
-  and will never be converted to profitable service. Once this situation is over,
-  and there will be no need for it to function, it will be taken down and all
-  data will be erased.
-</p>
-
-<blockquote class="font-bold">How else can I help?</blockquote>
-<p>
-  It is an open source project, so feel free to contribute!
-</p>
+<h3 class="text-3xl text-center">
+  Questions?
+  <a href="/qa" class="text-blue-500 underline">Click here</a>
+</h3>

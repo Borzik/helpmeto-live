@@ -1,60 +1,27 @@
 <h3 class="text-xl text-center mt-12">Almost ready... We need just a few more details about you</h3>
 
-<%= form_with(model: current_user, url: profile_path) do |f| %>
-  <div class="flex flex-col justify-between items-center">
-    <div class="my-4">
-      <%= f.label :name, "Name" %>
-      <%= f.text_field :name %>
+<div data-controller='edit-location' data-edit-location-lat='<%= current_user.lc_lat %>' data-edit-location-lng='<%= current_user.lc_lng %>'>
+  <%= form_with(model: current_user, url: profile_path) do |f| %>
+    <div class="flex flex-col justify-between items-center">
+      <div class="my-4">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="my-4">
+        <%= f.label :bio, "Please tell us about yourself" %>
+        <p class="text-gray-600 text-sm">
+          Why do you want to help? What, or who, inspires you?
+        </p>
+        <%= f.text_area :bio %>
+        <%= f.hidden_field :lc_lat, 'data-target' => 'edit-location.latInput' %>
+        <%= f.hidden_field :lc_lng, 'data-target' => 'edit-location.lngInput' %>
+
+        <p class="mt-8 text-lg">
+          Where can you help? You will be shown an 10-20 sq. km territory around you
+        </p>
+        <div data-target="edit-location.map" class="w-full h-50vh"></div>
+      </div>
+      <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
     </div>
-    <div class="my-4">
-      <%= f.label :bio, "Please tell us about yourself" %>
-      <p class="text-gray-600 text-sm">
-        Why do you want to help? What, or who, inspires you?
-      </p>
-      <%= f.text_area :bio %>
-      <%= f.hidden_field :lc_lat, id: 'user_lat' %>
-      <%= f.hidden_field :lc_lng, id: 'user_lng' %>
-
-      <p class="mt-8 text-lg">
-        Where can you help? You will be shown an 10-20 sq. km territory around you
-      </p>
-      <div id="map" class="w-full h-50vh"></div>
-    </div>
-    <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
-  </div>
-<% end %>
-
-<script>
-var map, marker;
-
-const latInput = document.getElementById('user_lat');
-const lngInput = document.getElementById('user_lng');
-
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 6
-  });
-
-  if (latInput.value && lngInput.value) {
-    marker = new google.maps.Marker({
-      position: {
-        lat: parseFloat(latInput.value),
-        lng: parseFloat(lngInput.value),
-      },
-      map: map,
-    });
-  }
-
-  map.addListener('click', function(e) {
-    if (marker) marker.setMap(null);
-    marker = new google.maps.Marker({
-      position: e.latLng,
-      map: map,
-    });
-    map.panTo(e.latLng);
-    latInput.value = e.latLng.lat();
-    lngInput.value = e.latLng.lng();
-  });
-}
-</script>
+  <% end %>
+</div>
