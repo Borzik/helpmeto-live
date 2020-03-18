@@ -1,11 +1,11 @@
-<h1 class="text-4xl text-center mt-4">Ask for help</h1>
+<h1 class="text-4xl text-center mt-4"><%= t('.ask_help') %></h1>
 <h4 class="text-gray-800 text-center text-2xl">
-  On this page you can fill in your request and select where you are
+  <%= t('.fill_in_request') %>
 </h4>
 
 <div data-controller='edit-location' data-edit-location-lat='<%= @need.lc_lat %>' data-edit-location-lng='<%= @need.lc_lng %>'>
   <%= form_with(model: @need, url: my_need_path) do |f| %>
-    <%= f.label :description, "Describe your request:" %>
+    <%= f.label :description, t('.describe_request') %>
     <%= f.text_area :description, autofocus: true %>
     <% if @need.errors[:description] %>
       <p class="text-red-500"><%= @need.errors[:description].join(', ') %></p>
@@ -14,17 +14,15 @@
     <%= f.hidden_field :lc_lng, 'data-target' => 'edit-location.lngInput' %>
 
     <p class="mt-8 text-lg">
-      Where do you live? Please <span class="font-bold">do not show your exact location</span>.
-      Some street around the corner will work great.
-      You will share your exact location only with the volunteer who
-      will get in touch with you.
-      You can zoom in and click the map, the pointer will appear.
+      <%= t('.location_text_1') %>
+      <span class="font-bold"><%= t('.location_text_2') %></span>
+      <%= t('.location_text_3') %>
     </p>
     <div data-target="edit-location.map" class="w-full h-50vh"></div>
     <% if @need.errors[:location] %>
       <p class="text-red-500"><%= @need.errors[:location].join(', ') %></p>
     <% end %>
 
-    <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 block mx-auto text-white" %>
+    <%= f.submit t('common.save'), class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 block mx-auto text-white" %>
   <% end %>
 </div>

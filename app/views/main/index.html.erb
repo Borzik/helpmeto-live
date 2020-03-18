@@ -1,43 +1,35 @@
 <section class="mt-4 md:mt-8 text-center">
-  <h1 class="text-4xl">Welcome to helpmeto.live!</h1>
+  <h1 class="text-4xl"><%= t('.welcome') %></h1>
   <p>
-    Today many people are facing danger from COVID-19.
+    <%= t('.line1') %>
     <br>
-    It is officially advised for many groups of people, who are especially
-    vulnerable to this virus, to stay at home, but not all have friends
-    or relatives who can take care of them. Join us to help them!
-  </p>
-
-  <p>
-    This website is a non-profit volunteer initiative to help people who cannot
-    go out because of the danger posed by the COVID-19.
-  </p>
-
-  <p>
-    It is intended only to cover basic needs (food, water, medicine), which people
-    can't fulfill because of the restrictions or danger.
+    <%= t('.line2') %>
+    <br>
+    <%= t('.line3') %>
+    <br>
+    <%= t('.line4') %>
   </p>
 </section>
 
 <h3 class="text-xl text-center mt-4">
-  There are currently
-  <%= pluralize User.where(kind: :volunteer).count, 'volunteer' %>
-  and
-  <%= pluralize User.where(kind: :recipient).count, 'recipient' %>
+  <%= t('.currently') %>
+  <%= t('.volunteer', count: User.where(kind: :volunteer).count) %>
+  <%= t('common.and') %>
+  <%= t('.recipient', count: User.where(kind: :recipient).count) %>
 </h3>
 
 <div class="flex items-center flex-col my-8">
   <% if logged_in? && current_user.recipient? %>
     <% if current_user.need %>
-      <%= link_to 'View your request', my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+      <%= link_to t('.view_your_request'), my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
     <% else %>
-      <%= link_to 'Create request', new_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+      <%= link_to t('.create_request'), new_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
     <% end %>
   <% elsif logged_in? %>
-    <%= link_to 'View requests nearby', needs_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+    <%= link_to t('.view_requests'), needs_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
   <% else %>
     <%= form_with url: '/auth', method: :post, class: "text-center my-8 flex flex-col items-center w-full" do %>
-      <h3 class="text-lg mb-1">Input your email to join or log in:</h3>
+      <h3 class="text-lg mb-1"><%= t('.call_to_action') %></h3>
       <div class="flex w-full md:w-1/2">
         <%= email_field_tag :email, '', class: "text-xl border rounded p-2 flex-1" %>
         <%= submit_tag "Go", class: "rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white" %>
@@ -49,34 +41,21 @@
 <% if !logged_in? %>
 <div class="grid grid-cols-2 gap-16 mt-8">
   <div>
-    <h3 class="text-2xl text-center">I can help</h3>
+    <h3 class="text-2xl text-center"><%= t('.volunteer_block.header') %></h3>
     <p>
-      The situation is serious. Maybe in any other time, we wouldn't have considered
-      volunteering, but today, if you can, please help. Peoples' lives depend on it.
-      Contact your relatives, especially elderlies, bring them groceries, medicine,
-      and help them with whatever they need. If every one of us takes care of their relatives,
-      we'd improve the situation a lot.
-    </p>
-    <p>
-      Sign up to see other people in your area who are in need. Contact them
-      and help to complete strangers.
+      <%= t('.volunteer_block.text') %>
     </p>
   </div>
   <div>
-    <h3 class="text-2xl text-center">I need help</h3>
+    <h3 class="text-2xl text-center"><%= t('.recipient_block.header') %></h3>
     <p>
-      If you are more vulnerable person than the rest (because of age, existing
-      health condition, or something else), feel free to sign up and ask for help.
-      Not every one of us has relatives or friends who can help, and this is why
-      this project was created. Unfortunately, as a non-profit and non-funded
-      initiative, we cannot afford to buy food for everyone. But our volunteers
-      are here to buy it and bring it to your home.
+      <%= t('.recipient_block.text') %>
     </p>
   </div>
 </div>
 <% end %>
 
 <h3 class="text-3xl text-center">
-  Questions?
-  <a href="/qa" class="text-blue-500 underline">Click here</a>
+  <%= t('.questions') %>
+  <a href="/qa" class="text-blue-500 underline"><%= t('.click_here') %></a>
 </h3>

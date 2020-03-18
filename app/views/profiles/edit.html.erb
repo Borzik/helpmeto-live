@@ -1,6 +1,6 @@
-<h3 class="text-4xl text-center mt-12">Are you...</h3>
+<h3 class="text-4xl text-center mt-12"><%= t('.are_you') %></h3>
 
 <div class="grid grid-cols-2 gap-4 mt-4 text-center">
-  <%= link_to 'in need of help?', edit_recipient_profile_path, class: 'block p-8 bg-blue-500 text-3xl text-white font-bold' %>
-  <%= link_to 'willing to help?', edit_volunteer_profile_path, class: 'block p-8 bg-blue-500 text-3xl text-white font-bold' %>
+  <%= link_to t('.recipient'), edit_recipient_profile_path, class: 'block p-8 bg-blue-500 text-3xl text-white font-bold' %>
+  <%= link_to t('.volunteer'), edit_volunteer_profile_path, class: 'block p-8 bg-blue-500 text-3xl text-white font-bold' %>
 </div>

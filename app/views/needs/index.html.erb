@@ -1,10 +1,6 @@
 <h1 class="text-4xl text-center mt-4">View requests nearby</h1>
 
-<% if @needs.length > 0 %>
-  <h4 class="text-xl">There are <%= pluralize(@needs.length, 'request') %> in your area currently.</h4>
-<% else %>
-  <h4 class="text-xl">There are no requests in your area currently.</h4>
-<% end %>
+<h4 class="text-xl"><%= t('.n_requests', count: @needs.length) %></h4>
 
 <div
   class="w-full h-50vh"

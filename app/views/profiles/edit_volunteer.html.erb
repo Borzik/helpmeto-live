@@ -1,19 +1,19 @@
-<h3 class="text-xl text-center mt-12">Almost ready... We need just a few more details about you</h3>
+<h3 class="text-xl text-center mt-12"><%= t('.need_details') %></h3>
 
 <div data-controller='edit-location' data-edit-location-lat='<%= current_user.lc_lat %>' data-edit-location-lng='<%= current_user.lc_lng %>'>
   <%= form_with(model: current_user, url: profile_path) do |f| %>
     <div class="flex flex-col justify-between items-center">
       <div class="my-4">
-        <%= f.label :name, "Name" %>
+        <%= f.label :name, t('.name') %>
         <%= f.text_field :name %>
         <% if current_user.errors[:name] %>
           <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
         <% end %>
       </div>
       <div class="my-4">
-        <%= f.label :bio, "Please tell us about yourself" %>
+        <%= f.label :bio, t('.bio') %>
         <p class="text-gray-600 text-sm">
-          Why do you want to help? What, or who, inspires you?
+          <%= t('.bio_questions') %>
         </p>
         <%= f.text_area :bio %>
         <% if current_user.errors[:bio] %>
@@ -23,14 +23,14 @@
         <%= f.hidden_field :lc_lng, 'data-target' => 'edit-location.lngInput' %>
 
         <p class="mt-8 text-lg">
-          Where can you help? You will be shown an 10-20 sq. km territory around you
+          <%= t('.location') %>
         </p>
         <div data-target="edit-location.map" class="w-full h-50vh"></div>
         <% if current_user.errors[:location] %>
           <p class="text-red-500"><%= current_user.errors[:location].join(', ') %></p>
         <% end %>
       </div>
-      <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
+      <%= f.submit t('common.save'), class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
     </div>
   <% end %>
 </div>

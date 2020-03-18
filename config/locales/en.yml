@@ -30,4 +30,90 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    and: and
+    save: Save
+  main:
+    index:
+      welcome: Welcome to helpmeto.live!
+      line1: Today many people are facing danger from COVID-19.
+      line2: It is officially advised for many groups of people, who are especially vulnerable to this virus, to stay at home, but not all have friends or relatives who can take care of them. Join us to help them!
+      line3: This website is a non-profit volunteer initiative to help people who cannot go out because of the danger posed by the COVID-19.
+      line4: It is intended only to cover basic needs (food, water, medicine), which people can't fulfill because of the restrictions or danger.
+      currently: There are currently
+      volunteer:
+        one: one volunteer
+        other: '%{count} volunteers'
+      recipient:
+        one: one recipient
+        other: '%{count} recipients'
+      view_requests: View Requests Nearby
+      view_request: View Your Request
+      view_your_request: View your request
+      create_request: Create Request
+      call_to_action: Input your email to join or log in
+      volunteer_block:
+        header: I can help
+        text: The situation is serious. Maybe in any other time, we wouldn't have considered volunteering, but today, if you can, please help. Peoples' lives depend on it. Contact your relatives, especially elderlies, bring them groceries, medicine, and help them with whatever they need. If every one of us takes care of their relatives, we'd improve the situation a lot. Sign up to see other people in your area who are in need. Contact them and help to complete strangers.
+      recipient_block:
+        header: I need help
+        text: If you are more vulnerable person than the rest (because of age, existing health condition, or something else), feel free to sign up and ask for help. Not every one of us has relatives or friends who can help, and this is why this project was created. Unfortunately, as a non-profit and non-funded initiative, we cannot afford to buy food for everyone. But our volunteers are here to buy it and bring it to your home.
+      questions: Questions?
+      click_here: Click here
+    qa:
+      for_volunteers: Q&A for volunteers
+      volunteer_1_question: Do I get paid?
+      volunteer_1_answer: No. This is not a food delivery service. Our goal is to help people, not to earn money on it. Of course those who can afford ordering delivery to their home should order it, but there are a lot of people who cannot afford it. Some people might show their appreciation somehow, but it is not and will not be encouraged.
+      volunteer_2_question: Do I have to spend my own money to buy food for people?
+      volunteer_2_answer: We are not funded by any government or company, so we can't give you money to buy food. At the same we do not ask you to donate money. One-time donation isn't enough in this situation. And to provide constant help, you will need your funds back. You will have to buy food for your own money, keep receipts, and bring it to people. For example, plan a simple package (bread, cereal, water). Find a person who needs it. Buy it and bring it to them. It should not be something expensive, just something to keep them going for a few more days.
+      volunteer_3_question: Can a person refuse to buy the food I bring?
+      volunteer_3_answer: We cannot force them to buy anything. That is why we ask you not to buy anything expensive or specific, unless you arrange it with the person first. By posting on the website, the person declares a need for help. You can offer them help, but it's up to them whether to accept or deny it.
+      for_recipients: Q&A for recipients
+      recipient_1_question: Should I pay for it?
+      recipient_1_answer: This is not a food delivery service. It is completely non-profit. Volunteers do not get money for their work. But the food has to be purchased. And volunteers are the ones who buy food and bring it to you. All the receipts will be provided, and if you can afford, please compensate volunteers' expenses according to the receipt they provide.  Our goal is to help people, not to earn money on it. If you can afford ordering food delivery to your home, or if you have relatives who can help you, please ask them. But there are a lot of people who cannot afford it any deliveries. And this is the help we can provide for them — to go and buy food for them.
+      for_everyone: Q&A for everyone
+      everyone_1_question: Won't I get infected?
+      everyone_1_answer: Due to the fact that the virus is highly contagious, it is possible. That is why we ask you to take all the precautions when you go to the store and contact anyone — wash your hands, and always keep a distance. If you feel sick — it's better to stay at home and let others know about your condition.
+      everyone_2_question: Where do the money to support and develop the service come from?
+      everyone_2_answer: Currently it is only founder's own funds. This project is non-profit, and will never be converted to profitable service. Once this situation is over, and there will be no need for it to function, it will be taken down and all data will be erased.
+      everyone_3_question: How else can I help?
+      everyone_3_answer: It is an open source project, so feel free to contribute!
+  needs:
+    form:
+      ask_help: Ask for help
+      fill_in_request: On this page you can fill in your request and select where you are
+      describe_request: 'Describe your request:'
+      location_text_1: Where do you live? Please
+      location_text_2: do not show your exact location.
+      location_text_3: Some street around the corner will work great. You will share your exact location only with the volunteer who will get in touch with you. You can zoom in and click the map, the pointer will appear.
+    index:
+      view_requests: View requests nearby
+      n_requests:
+        zero: There are no requests in your area currently.
+        one: There is one request in your area currently.
+        other: 'There are %{count} requests in your area currently'
+    show:
+      view_your_request: View your help request
+      edit_your_request: Edit your request
+      view_request: View help request
+  profiles:
+    edit_recipient:
+      need_details: Almost ready... We need just a few more details about you
+      name: Name
+      bio: Please tell us about yourself
+      bio_questions: Why do you need help? What do you like?
+    edit_volunteer:
+      need_details: Almost ready... We need just a few more details about you
+      name: Name
+      bio: Please tell us about yourself
+      bio_questions: Why do you want to help?
+      location: Where can you help? You will be shown an 10-20 sq. km territory around you
+    edit:
+      are_you: Are you...
+      recipient: in need of help?
+      volunteer: willing to help?
+  user_mailer:
+    sign_up:
+      welcome: Welcome to helpmeto.live!
+      follow_link: 'Please follow this link to log in to your account:'
+      activate: Activate

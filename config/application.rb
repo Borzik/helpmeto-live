@@ -31,5 +31,7 @@ module Helpmeto
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.middleware.use(Rack::Locale)
+    config.i18n.available_locales = [:en, :ru]
   end
 end

@@ -1,4 +1,9 @@
-<h1 class="text-4xl text-center mt-4">View <%= current_user.need&.id == @need.id ? 'your' : '' %> help request</h1>
+<h1 class="text-4xl text-center mt-4">
+<% if current_user.need&.id == @need.id %>
+  <%= t('.view_your_request') %>
+<% else %>
+  <%= t('.view_request') %>
+<% end %>
 
 <h3 class="text-xl italic text-center mt-4">
   <%= @need.description %>
@@ -8,6 +13,6 @@
 
 <% if current_user.need %>
   <div class="flex justify-center mt-8">
-    <%= link_to 'Edit your request', edit_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
+    <%= link_to t('.edit_your_request'), edit_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
   </div>
 <% end %>
