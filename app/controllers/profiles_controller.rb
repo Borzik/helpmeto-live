@@ -11,8 +11,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    current_user.update(profile_params)
-    redirect_to "/"
+    if current_user.update(profile_params)
+      redirect_to root_path
+    else
+      render_with_turbolinks current_user.volunteer? ? 'edit_volunteer' : 'edit_recipient'
+    end
   end
 
   private

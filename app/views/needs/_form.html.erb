@@ -7,6 +7,9 @@
   <%= form_with(model: @need, url: my_need_path) do |f| %>
     <%= f.label :description, "Describe your request:" %>
     <%= f.text_area :description, autofocus: true %>
+    <% if @need.errors[:description] %>
+      <p class="text-red-500"><%= @need.errors[:description].join(', ') %></p>
+    <% end %>
     <%= f.hidden_field :lc_lat, 'data-target' => 'edit-location.latInput' %>
     <%= f.hidden_field :lc_lng, 'data-target' => 'edit-location.lngInput' %>
 
@@ -18,6 +21,9 @@
       You can zoom in and click the map, the pointer will appear.
     </p>
     <div data-target="edit-location.map" class="w-full h-50vh"></div>
+    <% if @need.errors[:location] %>
+      <p class="text-red-500"><%= @need.errors[:location].join(', ') %></p>
+    <% end %>
 
     <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 block mx-auto text-white" %>
   <% end %>

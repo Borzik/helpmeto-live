@@ -13,15 +13,23 @@ class NeedsController < ApplicationController
     @need = Need.new
   end
   def create
-    @need = current_user.create_need(need_params)
-    redirect_to my_need_path
+    @need = current_user.build_need(need_params)
+    if @need.save
+      redirect_to my_need_path
+    else
+      render_with_turbolinks 'new'
+    end
   end
   def edit
     @need = current_user.need
   end
   def update
-    @need = current_user.need.update(need_params)
-    redirect_to my_need_path
+    @need = current_user.need
+    if @need.update(need_params)
+      redirect_to my_need_path
+    else
+      render_with_turbolinks 'edit'
+    end
   end
   def destroy
     current_user.need.destroy

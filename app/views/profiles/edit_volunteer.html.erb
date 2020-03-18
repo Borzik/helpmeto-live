@@ -6,6 +6,9 @@
       <div class="my-4">
         <%= f.label :name, "Name" %>
         <%= f.text_field :name %>
+        <% if current_user.errors[:name] %>
+          <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
+        <% end %>
       </div>
       <div class="my-4">
         <%= f.label :bio, "Please tell us about yourself" %>
@@ -13,6 +16,9 @@
           Why do you want to help? What, or who, inspires you?
         </p>
         <%= f.text_area :bio %>
+        <% if current_user.errors[:bio] %>
+          <p class="text-red-500"><%= current_user.errors[:bio].join(', ') %></p>
+        <% end %>
         <%= f.hidden_field :lc_lat, 'data-target' => 'edit-location.latInput' %>
         <%= f.hidden_field :lc_lng, 'data-target' => 'edit-location.lngInput' %>
 
@@ -20,6 +26,9 @@
           Where can you help? You will be shown an 10-20 sq. km territory around you
         </p>
         <div data-target="edit-location.map" class="w-full h-50vh"></div>
+        <% if current_user.errors[:location] %>
+          <p class="text-red-500"><%= current_user.errors[:location].join(', ') %></p>
+        <% end %>
       </div>
       <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
     </div>

@@ -2,6 +2,8 @@ class Need < ApplicationRecord
   belongs_to :user
   attr_writer :lc_lat, :lc_lng
   before_validation :set_location
+  validates :location, presence: { message: 'please click a map to select your location' }
+  validates :description, presence: true
 
   scope :within_10km_from, -> (location) {
     where(%{

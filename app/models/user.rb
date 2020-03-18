@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   before_create :set_sid
-  validate :account_complete, on: :update
+  validates :name, presence: true, on: :update
+  validates :bio, presence: true, on: :update
+  validates :location, presence: { message: 'please set a marker near your location' }, on: :update, if: :volunteer?
 
   enum kind: { guest: 0, recipient: 1, volunteer: 2 }
 
@@ -20,13 +22,6 @@ class User < ApplicationRecord
   private
   def set_sid
     self.sid = SecureRandom.alphanumeric(8)
-  end
-
-  def account_complete
-    if !guest?
-      errors.add(:name, 'required') unless name.present?
-      errors.add(:bio, 'required') unless bio.present?
-    end
   end
 
   def set_location

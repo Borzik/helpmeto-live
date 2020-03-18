@@ -5,6 +5,9 @@
     <div class="my-4">
       <%= f.label :name, "Name" %>
       <%= f.text_field :name %>
+      <% if current_user.errors[:name] %>
+        <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
+      <% end %>
     </div>
     <div class="my-4">
       <%= f.label :bio, "Please tell us about yourself" %>
@@ -12,6 +15,9 @@
         Why do you need help? What do you like?
       </p>
       <%= f.text_area :bio %>
+      <% if current_user.errors[:bio] %>
+        <p class="text-red-500"><%= current_user.errors[:bio].join(', ') %></p>
+      <% end %>
     </div>
     <%= f.submit "Save", class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
   </div>
