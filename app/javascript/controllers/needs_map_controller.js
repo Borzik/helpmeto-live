@@ -12,6 +12,8 @@ export default class extends Controller {
       style: 'mapbox://styles/mapbox/streets-v11',
     });
 
+    this.map.addControl(new mapboxgl.NavigationControl());
+
     const needs = JSON.parse(this.data.get('list'));
     needs.forEach((need) => {
       const popupContent = `${need.description} <br><a href="/needs/${need.id}" class="text-blue-800" target="_blank">${I18n.learn_more}</a>`
