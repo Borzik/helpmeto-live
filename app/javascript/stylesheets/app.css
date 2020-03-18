@@ -16,12 +16,12 @@ blockquote {
   @apply pl-4 py-4 border-l-2 border-gray-400;
 }
 
-input[type=text], input[type=email], textarea {
+input, textarea {
   @apply text-xl border rounded p-2 w-full;
 }
 
 input[type="submit"] {
-  @apply rounded bg-blue-600 px-6 py-2 text-xl text-white;
+  @apply rounded bg-blue-600 px-6 py-2 text-xl text-white w-auto;
 }
 
 .h-50vh {

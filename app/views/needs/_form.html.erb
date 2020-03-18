@@ -20,11 +20,6 @@
       will get in touch with you.
       You can zoom in and click the map, the pointer will appear.
     </p>
-    <label for="need_address">Input your address here, then press "Find":</label>
-    <div class="flex mb-4">
-      <%= text_field_tag :address, '', id: 'need_address', 'data-target' => 'edit-location.addressInput' %>
-      <a href="javascript:void(0)" class="block p-4 bg-blue-500 text-white" data-action="click->edit-location#find">Find</a>
-    </div>
     <div data-target="edit-location.map" class="w-full h-50vh"></div>
     <% if @need.errors[:location] %>
       <p class="text-red-500"><%= @need.errors[:location].join(', ') %></p>

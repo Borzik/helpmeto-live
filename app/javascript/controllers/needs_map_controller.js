@@ -2,30 +2,21 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   connect() {
-    this.map = new google.maps.Map(this.element, {
+    this.map = new mapboxgl.Map({
+      container: this.element,
       center: {
         lng: parseFloat(this.data.get('lng')),
         lat: parseFloat(this.data.get('lat')),
       },
       zoom: 12,
-      clickableIcons: false,
-      streetViewControl: false,
-      scaleControl: true,
+      style: 'mapbox://styles/mapbox/streets-v11',
     });
 
     const needs = JSON.parse(this.data.get('list'));
     needs.forEach((need) => {
-      var marker = new google.maps.Marker({
-        position: {
-          lng: need.lc_lng,
-          lat: need.lc_lat,
-        },
-        map: this.map,
-      });
-      marker.addListener('click', function() {
-        var win = window.open(`/needs/${need.id}`);
-        win.focus();
-      });
+      const popupContent = `${need.description} <br><a href="/needs/${need.id}" class="text-blue-800" target="_blank">Learn more</a>`
+      let popup = new mapboxgl.Popup({offset: 25}).setHTML(popupContent);
+      new mapboxgl.Marker().setLngLat([need.lc_lng, need.lc_lat]).setPopup(popup).addTo(this.map);
     })
   }
 }
