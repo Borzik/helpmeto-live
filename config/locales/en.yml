@@ -15,7 +15,7 @@ en:
         one: one volunteer
         other: '%{count} volunteers'
       recipient:
-        one: needing help
+        one: one needing help
         other: '%{count} needing help'
       view_requests: View Requests Nearby
       view_request: View Your Request
