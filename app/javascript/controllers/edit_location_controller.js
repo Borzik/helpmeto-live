@@ -1,11 +1,12 @@
 import { Controller } from "stimulus"
+import MapboxLanguage from '@mapbox/mapbox-gl-language';
 
 export default class extends Controller {
   static targets = [ "map", "latInput", "lngInput"]
   createMap(pos, zoom) {
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/streets-v10',
       center: pos,
       zoom: zoom,
     });
@@ -25,6 +26,7 @@ export default class extends Controller {
     })
     this.map.addControl(geocoder);
     this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.addControl(new MapboxLanguage());
   }
 
   createMarker(pos) {

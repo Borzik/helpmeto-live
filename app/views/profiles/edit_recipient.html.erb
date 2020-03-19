@@ -1,24 +1,16 @@
-<h3 class="text-xl text-center mt-12"><%= t('.need_details') %></h3>
+<h3 class="text-2xl text-center mt-12"><%= t('.need_details') %></h3>
 
-<%= form_with(model: current_user, url: profile_path) do |f| %>
-  <div class="flex flex-col justify-between items-center">
-    <div class="my-4">
-      <%= f.label :name, t('.name') %>
-      <%= f.text_field :name, class: 'string' %>
-      <% if current_user.errors[:name] %>
-        <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
-      <% end %>
-    </div>
-    <div class="my-4">
-      <%= f.label :bio, t('.bio') %>
-      <p class="text-gray-600 text-sm">
-        <%= t('.bio_questions') %>
-      </p>
-      <%= f.text_area :bio %>
-      <% if current_user.errors[:bio] %>
-        <p class="text-red-500"><%= current_user.errors[:bio].join(', ') %></p>
-      <% end %>
-    </div>
-    <%= f.submit t('common.save'), class: "rounded bg-blue-600 px-6 py-2 text-xl mt-8 text-white" %>
-  </div>
+<%= form_with(model: current_user, url: profile_path, class: 'flex flex-col justify-between mx-auto w-full md:w-1/2') do |f| %>
+  <%= f.label :name, t('.name'), class: 'text-xl mt-8' %>
+  <%= f.text_field :name, class: 'string', placeholder: 'Press here and enter your name', autofocus: true %>
+  <% if current_user.errors[:name] %>
+    <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
+  <% end %>
+  <%= f.label :bio, t('.bio'), class: 'text-xl mt-8' %>
+  <p><%= t('.bio_questions') %></p>
+  <%= f.text_area :bio, placeholder: 'Press here and write something about yourself' %>
+  <% if current_user.errors[:bio] %>
+    <p class="text-red-500"><%= current_user.errors[:bio].join(', ') %></p>
+  <% end %>
+  <%= f.submit t('common.save'), class: "rounded bg-blue-600 px-6 py-2 text-2xl mt-8 text-white self-center cursor-pointer" %>
 <% end %>

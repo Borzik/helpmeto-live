@@ -5,24 +5,20 @@
 
 <div data-controller='edit-location' data-edit-location-lat='<%= @need.lc_lat %>' data-edit-location-lng='<%= @need.lc_lng %>'>
   <%= form_with(model: @need, url: my_need_path) do |f| %>
-    <%= f.label :description, t('.describe_request') %>
-    <%= f.text_area :description, autofocus: true %>
+    <%= f.label :description, t('.describe_request'), class: 'text-xl mt-8' %>
+    <%= f.text_area :description, autofocus: true, placeholder: 'Press here and describe your request' %>
     <% if @need.errors[:description] %>
       <p class="text-red-500"><%= @need.errors[:description].join(', ') %></p>
     <% end %>
     <%= f.hidden_field :lc_lat, 'data-target' => 'edit-location.latInput' %>
     <%= f.hidden_field :lc_lng, 'data-target' => 'edit-location.lngInput' %>
 
-    <p class="mt-8 text-lg">
-      <%= t('.location_text_1') %>
-      <span class="font-bold"><%= t('.location_text_2') %></span>
-      <%= t('.location_text_3') %>
-    </p>
+    <p class="mt-8 text-xl"><%= t('.location_html') %></p>
     <div data-target="edit-location.map" class="w-full h-50vh"></div>
     <% if @need.errors[:location] %>
       <p class="text-red-500"><%= @need.errors[:location].join(', ') %></p>
     <% end %>
 
-    <%= f.submit t('common.save'), class: "submit block mx-auto" %>
+    <%= f.submit t('common.save'), class: "submit block mx-auto p-8" %>
   <% end %>
 </div>

@@ -51,9 +51,14 @@ en:
       ask_help: Ask for help
       fill_in_request: On this page you can fill in your request and select where you are
       describe_request: 'Describe your request:'
-      location_text_1: Where do you live? Please
-      location_text_2: do not show your exact location.
-      location_text_3: Some street around the corner will work great. You will share your exact location only with the volunteer who will get in touch with you. You can zoom in and click the map, the pointer will appear.
+      location_html: |
+        Where do you live?<br>
+        — input your city, state and country into the top-right "Search" field on a map<br>
+        — city name will appear below; click/tap it<br>
+        — drag a map (press a mouse button on a map, hold it and move the mouse)<br>
+        — zoom in on the map (use plus and minus buttons on the right)<br>
+        — click or tap the map to choose the location<br>
+        — a blue marker will appear — well done! — then press "Save" below the map
     index:
       view_requests: View requests nearby
       n_requests:
@@ -63,6 +68,7 @@ en:
     show:
       view_your_request: View your help request
       edit_your_request: Edit your request
+      delete_your_request: Delete your request
       view_request: View help request
       already_sent: 'You have already sent offer:'
       send_now: 'You can send an offer to help:'
@@ -85,7 +91,7 @@ en:
       name: Name
       bio: Please tell us about yourself
       bio_questions: Why do you want to help?
-      location: Where can you help? You will be shown an 10-20 sq. km territory around you
+      location: Where can you help? Zoom in on the map and click/tap to choose a location, a blue marker will appear. You will be shown people in need within 10km/6mi from the marker.
     edit:
       are_you: Are you...
       recipient: in need of help?

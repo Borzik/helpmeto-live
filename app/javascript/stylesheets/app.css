@@ -21,7 +21,7 @@ input.string, textarea {
 }
 
 input.submit {
-  @apply rounded bg-blue-600 px-6 py-2 text-xl text-white w-auto;
+  @apply rounded bg-blue-600 px-6 py-2 text-xl text-white w-auto cursor-pointer;
 }
 
 .h-50vh {

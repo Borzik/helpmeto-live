@@ -10,9 +10,9 @@
   </h3>
   <% if logged_in? && current_user.recipient? %>
     <% if current_user.need %>
-      <%= link_to t('.view_your_request'), my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-xl self-center' %>
+      <%= link_to t('.view_your_request'), my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-2xl self-center' %>
     <% else %>
-      <%= link_to t('.create_request'), new_my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-xl self-center' %>
+      <%= link_to t('.create_request'), new_my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-2xl self-center' %>
     <% end %>
   <% elsif logged_in? %>
     <%= link_to t('.view_requests'), needs_path, class: 'my-2 p-6 bg-blue-500 block text-white text-xl self-center' %>
@@ -20,7 +20,7 @@
     <%= form_with url: '/auth', method: :post, class: "my-8 flex flex-col items-center w-full" do %>
       <h3 class="text-lg mb-1 w-full"><%= t('.call_to_action') %></h3>
       <div class="flex w-full">
-        <%= email_field_tag :email, '', class: "string text-xl border rounded p-2 flex-1" %>
+        <%= email_field_tag :email, '', class: "string text-xl border rounded p-2 flex-1", autofocus: true %>
         <%= submit_tag t('common.go'), class: "rounded bg-blue-600 px-6 py-2 text-xl ml-2 text-white" %>
       </div>
       <p class="text-gray-800 w-full text-sm">

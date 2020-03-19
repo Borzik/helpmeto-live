@@ -14,7 +14,7 @@
 <% if policy(@need).edit? %>
   <div class="flex justify-center mt-8">
     <%= link_to t('.edit_your_request'), edit_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
-    <%= button_to t('.delete_your_request'), my_need_path, method: :delete, class: 'ml-2 p-8 bg-red-500 block text-white text-xl' %>
+    <%= button_to t('.delete_your_request'), my_need_path, method: :delete, 'data-confirm': 'Are you sure?', class: 'ml-2 p-8 bg-red-500 block text-white text-xl' %>
   </div>
   <% if (offers = @need.offers).length > 0 %>
     <h3 class="text-xl text-center mt-4"><%= t('.you_got_proposal', count: @need.offers.length) %></h3>
