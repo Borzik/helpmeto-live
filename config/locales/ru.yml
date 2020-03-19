@@ -4,6 +4,7 @@ ru:
     save: Сохранить
     send: Отправить
     go: Войти
+    confirm: Вы уверены?
   main:
     index:
       welcome: Добро пожаловать!
@@ -31,7 +32,6 @@ ru:
       tos: Правилами Сервиса
       privacy_policy: Политикой конфиденциальности
       how_works: Как работает этот сервис?
-      service_description: The goal of the service is to connect people in need with people who can help them. Person in need can specify their need and their approximate location, and if you are nearby — you can get in touch with them and offer your help. Once they contact you using the information you provided — the service has fulfilled its purpose.
       service_description: Наша цель — соединить людей, которые нуждаются в помощи, с теми, кто мог бы им помочь. Нуждающийся в помощи человек запрашивает помощь и указывает свое примерное местоположение, и если вы рядом — можете связаться с ним и предложить помощь. Как только они откликнулись на ваше предложение, сервис выполнил свою задачу.
     qa:
       for_volunteers: Q&A для волонтеров
@@ -56,6 +56,7 @@ ru:
       ask_help: Попросить о помощи
       fill_in_request: На этой странице вы можете заполнить свой запрос и указать, где вы находитесь
       describe_request: 'Опишите ваш запрос:'
+      describe_request_placeholder: Нажмите здесь и опишите ваш запрос
       location_html: |
         Где вы живете?<br>
         — введите свой город и страну в поле в верхнем правом углу карты<br>
@@ -95,7 +96,9 @@ ru:
     edit_recipient:
       need_details: Почти готово... Нам нужно еще немного информации о вас
       name: Имя
+      name_placeholder: Нажмите здесь и введите ваше имя
       bio: Пожалуйста, расскажите о себе
+      bio_placeholder: Нажмите здесь и напишите что-то о себе
       bio_questions: Почему вам нужна помощь? Что бы вы хотели?
     edit_volunteer:
       need_details: Почти готово... Нам нужно еще немного информации о вас

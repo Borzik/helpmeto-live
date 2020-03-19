@@ -2,13 +2,13 @@
 
 <%= form_with(model: current_user, url: profile_path, class: 'flex flex-col justify-between mx-auto w-full md:w-1/2') do |f| %>
   <%= f.label :name, t('.name'), class: 'text-xl mt-8' %>
-  <%= f.text_field :name, class: 'string', placeholder: 'Press here and enter your name', autofocus: true %>
+  <%= f.text_field :name, class: 'string', placeholder: t('.name_placeholder'), autofocus: true %>
   <% if current_user.errors[:name] %>
     <p class="text-red-500"><%= current_user.errors[:name].join(', ') %></p>
   <% end %>
   <%= f.label :bio, t('.bio'), class: 'text-xl mt-8' %>
   <p><%= t('.bio_questions') %></p>
-  <%= f.text_area :bio, placeholder: 'Press here and write something about yourself' %>
+  <%= f.text_area :bio, placeholder: t('.bio_placeholder') %>
   <% if current_user.errors[:bio] %>
     <p class="text-red-500"><%= current_user.errors[:bio].join(', ') %></p>
   <% end %>

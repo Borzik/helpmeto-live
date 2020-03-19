@@ -4,6 +4,7 @@ en:
     save: Save
     send: Send
     go: Go
+    confirm: Are you sure?
   main:
     index:
       welcome: Welcome to helpmeto.live!
@@ -51,6 +52,7 @@ en:
       ask_help: Ask for help
       fill_in_request: On this page you can fill in your request and select where you are
       describe_request: 'Describe your request:'
+      describe_request_placeholder: Press here and describe your request
       location_html: |
         Where do you live?<br>
         — input your city, state and country into the top-right "Search" field on a map<br>
@@ -74,6 +76,10 @@ en:
       send_now: 'You can send an offer to help:'
       contact_info: Your contact information (phone number is preferred)
       message: Your message
+      you_got_proposal:
+        one: 'You got one offer to help'
+        other: 'You got %{count} offers to help'
+      contact: Contact information
     create:
       success: Your request is now visible to all volunteers near you!
     update:
@@ -84,7 +90,9 @@ en:
     edit_recipient:
       need_details: Almost ready... We need just a few more details about you
       name: Name
+      name_placeholder: Press here and enter your name
       bio: Please tell us about yourself
+      bio_placeholder: Press here and write something
       bio_questions: Why do you need help? What do you like?
     edit_volunteer:
       need_details: Almost ready... We need just a few more details about you
