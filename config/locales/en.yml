@@ -8,9 +8,7 @@ en:
     index:
       welcome: Welcome to helpmeto.live!
       line1: Today many people are facing danger from COVID-19.
-      line2: It is officially advised for many groups of people, who are especially vulnerable to this virus, to stay at home, but not all have friends or relatives who can take care of them. Join us to help them!
-      line3: This website is a non-profit volunteer initiative to help people who cannot go out because of the danger posed by the COVID-19.
-      line4: It is intended only to cover basic needs (food, water, medicine), which people can't fulfill because of the restrictions or danger.
+      line2: This website is a non-profit volunteer initiative to help people who cannot go out because of the danger posed by the COVID-19. It is officially advised for many groups of people, who are especially vulnerable to this virus, to stay at home, but not all have friends or relatives who can take care of them. Join us to help them cover basic needs (food, water, medicine).
       currently: There are currently
       volunteer:
         one: one volunteer
@@ -22,15 +20,14 @@ en:
       view_request: View Your Request
       view_your_request: View your request
       create_request: Create Request
-      call_to_action: Input your email to join or log in
-      volunteer_block:
-        header: I can help
-        text: The situation is serious. Maybe in any other time, we wouldn't have considered volunteering, but today, if you can, please help. Peoples' lives depend on it. Contact your relatives, especially elderlies, bring them groceries, medicine, and help them with whatever they need. If every one of us takes care of their relatives, we'd improve the situation a lot. Sign up to see other people in your area who are in need. Contact them and help to complete strangers.
-      recipient_block:
-        header: I need help
-        text: If you are more vulnerable person than the rest (because of age, existing health condition, or something else), feel free to sign up and ask for help. Not every one of us has relatives or friends who can help, and this is why this project was created. Unfortunately, as a non-profit and non-funded initiative, we cannot afford to buy food for everyone. But our volunteers are here to buy it and bring it to your home.
+      call_to_action: To begin, please enter your email and press "Go"
       questions: Questions?
       click_here: Click here
+      you_accept: By entering your email, you accept our
+      tos: Terms of Service
+      privacy_policy: Privacy Policy
+      how_works: How does it work?
+      service_description: The goal of the service is to connect people in need with people who can help them. Person in need can specify their need and their approximate location, and if you are nearby — you can get in touch with them and offer your help. Once they contact you using the information you provided — the service has fulfilled its purpose.
     qa:
       for_volunteers: Q&A for volunteers
       volunteer_1_question: Do I get paid?
@@ -108,7 +105,7 @@ en:
       message: Message
   auth:
     create:
-      link_sent: We have sent a link to log in to your email
+      link_sent: We have sent a link to log in to your email. If you don't receive it in a minute or two, please try again and check your email spam folder
     activate:
       logged_in: You are now logged in!
   javascript:

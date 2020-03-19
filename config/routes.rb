@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'auth', to: 'auth#create'
   get 'auth', to: 'auth#activate', as: 'activate_auth'
   get 'qa', to: 'main#qa', as: 'qa'
+  get 'tos', to: 'main#tos', as: 'tos'
+  get 'privacy_policy', to: 'main#privacy_policy', as: 'privacy_policy'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 

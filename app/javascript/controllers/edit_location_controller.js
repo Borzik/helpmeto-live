@@ -9,7 +9,6 @@ export default class extends Controller {
       center: pos,
       zoom: zoom,
     });
-    this.map.addControl(new mapboxgl.NavigationControl());
     this.map.on('click', (e) => {
       this.createMarker(e.lngLat);
       this.map.panTo(e.lngLat);
@@ -25,6 +24,7 @@ export default class extends Controller {
       this.createMarker(result.center);
     })
     this.map.addControl(geocoder);
+    this.map.addControl(new mapboxgl.NavigationControl());
   }
 
   createMarker(pos) {
