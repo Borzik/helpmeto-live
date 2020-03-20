@@ -1,0 +1,23 @@
+{
+  "name": "HelpMeTo.live server",
+  "description": "HelpMeTo.live for local communities",
+  "repository": "https://github.com/Borzik/helpmeto",
+  "keywords": ["ruby-on-rails"],
+  "env": {
+    "APPLICATION_HOST": {
+      "description": "Domain on which your website will be hosted (all links from emails will point to this domain)",
+      "value": "helpmeto.live"
+    },
+    "JWT_SECRET": {
+      "description": "A secret key for verifying the integrity of sent emails.",
+      "generator": "secret"
+    },
+    "MAPBOXJS_TOKEN": {
+      "description": "mapBox JS API token. Sign up on MapBox and get one for your app"
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "sendgrid"
+  ]
+}

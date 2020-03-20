@@ -1,24 +1,12 @@
-# README
+This is a source code of helpmeto.live website.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It was developed based on Ruby On Rails 6.0
 
-Things you may want to cover:
+Dependencies:
+- Ruby 2.6.3
+- Ruby on Rails 6.0
+- PostgreSQL with PostGIS extension
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Instructions:
+- press this button to start it on your Heroku:
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Borzik/helpmeto)
