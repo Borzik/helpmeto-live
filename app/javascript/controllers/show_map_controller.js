@@ -10,6 +10,8 @@ export default class extends Controller {
       zoom: 14,
     });
     this.map.addControl(new mapboxgl.NavigationControl());
-    new mapboxgl.Marker().setLngLat([pos.lng, pos.lat]).addTo(this.map);
+    new mapboxgl.Marker({
+      color: '#fc3903'
+    }).setLngLat([pos.lng, pos.lat]).addTo(this.map);
   }
 }

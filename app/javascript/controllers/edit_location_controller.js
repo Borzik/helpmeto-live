@@ -31,7 +31,9 @@ export default class extends Controller {
 
   createMarker(pos) {
     if (this.marker) this.marker.remove();
-    this.marker = new mapboxgl.Marker().setLngLat(pos).addTo(this.map);
+    this.marker = new mapboxgl.Marker({
+      color: '#fc3903'
+    }).setLngLat(pos).addTo(this.map);
   }
 
   connect() {

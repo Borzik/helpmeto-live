@@ -18,7 +18,9 @@ export default class extends Controller {
     needs.forEach((need) => {
       const popupContent = `${need.description} <br><a href="/needs/${need.id}" class="text-blue-800" target="_blank">${I18n.learn_more}</a>`
       let popup = new mapboxgl.Popup({offset: 25}).setHTML(popupContent);
-      new mapboxgl.Marker().setLngLat([need.lc_lng, need.lc_lat]).setPopup(popup).addTo(this.map);
+      new mapboxgl.Marker({
+        color: '#fc3903'
+      }).setLngLat([need.lc_lng, need.lc_lat]).setPopup(popup).addTo(this.map);
     })
   }
 }
