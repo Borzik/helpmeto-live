@@ -4,7 +4,7 @@
 </h4>
 
 <div data-controller='edit-location' data-edit-location-lat='<%= @need.lc_lat %>' data-edit-location-lng='<%= @need.lc_lng %>'>
-  <%= form_with(model: @need, url: my_need_path) do |f| %>
+  <%= form_with(model: @need, url: my_need_path, method: :patch) do |f| %>
     <%= f.label :description, t('.describe_request'), class: 'text-xl mt-8' %>
     <%= f.text_area :description, autofocus: true, placeholder: t('.describe_request_placeholder') %>
     <% if @need.errors[:description] %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get :edit_recipient, on: :member
     get :edit_volunteer, on: :member
   end
-  resource :need, as: :my_need, only: %i[show new create edit update destroy]
+  resource :need, as: :my_need, only: %i[show edit update destroy]
   resources :needs, only: %i[index show] do
     resources :offers, only: %i[index create]
   end

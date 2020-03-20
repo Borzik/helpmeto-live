@@ -9,11 +9,7 @@
     <%= t('.recipient', count: User.where(kind: :recipient).count) %>
   </h3>
   <% if logged_in? && current_user.recipient? %>
-    <% if current_user.need %>
-      <%= link_to t('.view_your_request'), my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-2xl self-center' %>
-    <% else %>
-      <%= link_to t('.create_request'), new_my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-2xl self-center' %>
-    <% end %>
+    <%= link_to current_user.need ? t('.view_your_request') : t('.create_request'), edit_my_need_path, class: 'my-2 p-6 bg-blue-500 block text-white text-2xl self-center' %>
   <% elsif logged_in? %>
     <%= link_to t('.view_requests'), needs_path, class: 'my-2 p-6 bg-blue-500 block text-white text-xl self-center' %>
   <% else %>
