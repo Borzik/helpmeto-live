@@ -79,6 +79,7 @@ en:
       you_got_proposal:
         one: 'You got one offer to help'
         other: 'You got %{count} offers to help'
+      proposal_instructions: Please contact people below, they are ready to help!
       contact: Contact information
     create:
       success: Your request is now visible to all volunteers near you!

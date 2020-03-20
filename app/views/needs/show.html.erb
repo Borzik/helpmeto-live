@@ -5,25 +5,26 @@
   <%= t('.view_request') %>
 <% end %>
 
-<h3 class="text-xl italic text-center mt-4">
-  <%= @need.description %>
-</h3>
-
-<div class="w-full h-50vh mt-8" data-controller="show-map" data-lat="<%= @need.lc_lat %>" data-lng="<%= @need.lc_lng %>"></div>
-
 <% if policy(@need).edit? %>
   <div class="flex justify-center mt-8">
     <%= link_to t('.edit_your_request'), edit_my_need_path, class: 'p-8 bg-blue-500 block text-white text-xl' %>
     <%= button_to t('.delete_your_request'), my_need_path, method: :delete, 'data-confirm': t('common.confirm'), class: 'ml-2 p-8 bg-red-500 block text-white text-xl' %>
   </div>
   <% if (offers = @need.offers).length > 0 %>
-    <h3 class="text-xl text-center mt-4"><%= t('.you_got_proposal', count: @need.offers.length) %></h3>
+    <h3 class="text-xl text-center my-4"><%= t('.you_got_proposal', count: @need.offers.length) %>:</h3>
+    <h4 class="text-lg text-center my-4"><%= t('.proposal_instructions') %></h4>
     <% offers.each do |offer| %>
-      <p class="text-center"><%= t('.contact') %>: <%= offer.contact_info %></p>
+      <p class="text-center font-bold text-lg"><%= t('.contact') %>: <%= offer.contact_info %></p>
       <p class="italic text-center mb-4"><%= offer.message %></p>
     <% end %>
   <% end %>
 <% end %>
+
+<h3 class="text-xl italic text-center mt-4">
+  <%= @need.description %>
+</h3>
+
+<div class="w-full h-50vh mt-8" data-controller="show-map" data-lat="<%= @need.lc_lat %>" data-lng="<%= @need.lc_lng %>"></div>
 
 <% if current_user.volunteer? %>
   <% if (offer = @need.offers.find_by(user_id: current_user.id)) %>
