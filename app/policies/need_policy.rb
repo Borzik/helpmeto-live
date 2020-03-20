@@ -1,14 +1,10 @@
 class NeedPolicy < ApplicationPolicy
+  def index?
+    @user && @user.volunteer?
+  end
+
   def show?
     @user
-  end
-
-  def new?
-    @user.recipient?
-  end
-
-  def create?
-    @user.recipient? && @user.id == @record.user_id
   end
 
   def edit?

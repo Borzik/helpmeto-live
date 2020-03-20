@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index
 
   rescue_from Pundit::NotAuthorizedError do
-    redirect_to root_path, error: 'You are not authorized to perform this action'
+    if logged_in?
+      redirect_to root_path, error: t('application.prohibited')
+    else
+      redirect_to root_path, warning: t('application.log_in_first')
+    end
   end
 
   def current_user
@@ -21,11 +25,10 @@ class ApplicationController < ActionController::Base
 
   private
   def verify_account
-    return if !logged_in?
-    return redirect_to edit_profile_path if current_user.name.empty?
-    return redirect_to edit_profile_path if current_user.bio.empty?
-    return redirect_to edit_profile_path if current_user.volunteer? && !current_user.location
-    true
+    return unless logged_in?
+    return redirect_to edit_profile_path if current_user.guest?
+    return redirect_to edit_volunteer_profile_path if current_user.volunteer? && !current_user.valid?
+    return redirect_to edit_recipient_profile_path if current_user.recipient? && !current_user.valid?
   end
 
   def render_with_turbolinks(*options, &block)

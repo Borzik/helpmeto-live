@@ -16,8 +16,12 @@ class MainController < ApplicationController
   end
 
   private
+
+  # we want to keep recipients on their need page
   def redirect_to_need
-    return if !logged_in? || current_user.volunteer? || current_user.need.nil?
+    return unless logged_in?
+    return unless current_user.recipient?
+    return if current_user.need.nil?
     redirect_to my_need_path
   end
 end

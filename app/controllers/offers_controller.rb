@@ -1,8 +1,4 @@
 class OffersController < ApplicationController
-  def index
-    @offers = policy_scope(Offer)
-  end
-
   def create
     @need = Need.find(params[:need_id])
     @offer = current_user.offers.build(offer_params.merge(need_id: @need.id))

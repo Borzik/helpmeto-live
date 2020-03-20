@@ -1,4 +1,7 @@
 en:
+  application:
+    log_in_first: Please log in first
+    prohibited: You cannot access this page
   common:
     and: and
     save: Save

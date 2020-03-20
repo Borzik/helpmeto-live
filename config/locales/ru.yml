@@ -1,4 +1,7 @@
 ru:
+  application:
+    log_in_first: Пожалуйста, войдите на сайт, используя форму ниже
+    prohibited: Эта страница недоступна
   common:
     and: и
     save: Сохранить

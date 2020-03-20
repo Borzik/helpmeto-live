@@ -1,5 +1,6 @@
 class NeedsController < ApplicationController
   def index
+    authorize Need
     @needs = policy_scope(Need)
     @needs_json = @needs.to_json(only: [:id, :description], methods: [:lc_lat, :lc_lng])
   end
